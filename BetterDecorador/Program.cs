@@ -10,7 +10,11 @@ namespace BetterDecorador
         /// <param name="args">array de strings</param>
         private static void Main(string[] args)
         {
-            Console.WriteLine(Decor(args[0],Convert.ToChar(args[1]),Convert.ToInt32(args[2])));
+            if(args.Length>=3)
+                Console.WriteLine(Decor(args[0],Convert.ToChar(args[1]),Convert.ToInt32(args[2])));
+            else
+                Console.WriteLine(Decor());
+
             
         }
         /// <summary>
@@ -28,6 +32,10 @@ namespace BetterDecorador
                 total+=dec;
             }
             return $"{total} {s} {total}";
+        }
+        private static string Decor()
+        {
+            return Decor("User did not specify args!", '=', 3);
         }
     }
 }
